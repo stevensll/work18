@@ -15,11 +15,12 @@
 
 int main(){
     int running = 1;
-    int pc[2];
-    int cp[2];
-    pipe(pc);
-    pipe(cp);
-    // while(running){
+
+    while(running){
+        int pc[2];
+        int cp[2];
+        pipe(pc);
+        pipe(cp);
         // printf("%s", input);
         int f = fork();
         //CHILD needs only W for CP and READ from PC
@@ -54,8 +55,8 @@ int main(){
            
             char output[MAX_INPUT_SIZE];
             read(cp[READ], output, sizeof(output));
-            printf("Output: %s\n", output);
+            printf("Output: %s\n\n", output);
         }
-    // }
+    }
     return 0;
 }
